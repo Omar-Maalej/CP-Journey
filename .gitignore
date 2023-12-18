@@ -1,0 +1,3 @@
+# C++ compiled files and executables
+*.o
+*.exe
