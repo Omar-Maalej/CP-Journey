@@ -12,15 +12,15 @@ int main(){
     }
     long long ans = sum;
     for(int b=0;b<(1<<n);b++){
-        //cout <<"- "<< b << " : " << endl;
+        cout <<"- "<< b << " : " << endl;
         long long subsum=0;
         for(int i=0;i<n;i++){
             if(b&(1<<i)){
-                //cout << p[i] << endl;
+                cout << p[i] << endl;
                 subsum+=p[i];
             }
         }
-         //cout << "subsum = " << subsum << endl;
+         cout << "subsum = " << subsum << endl;
             ans =  min(ans,abs(sum-2*subsum));
     }
     cout << ans << endl;
