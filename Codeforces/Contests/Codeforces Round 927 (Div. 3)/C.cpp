@@ -13,25 +13,32 @@ int main()
     while(t--){
         long long n, m;
         cin >> n >> m;
-        long long a[n], p = 1;
+        long long a[n];
         for(int i=0;i<n;i++){
             cin >> a[i];
-            if()
-            p*=a[i] % m;
         }
         string s;
         cin >> s;
-        int l = 0, r = n-1;
+        long long l = 0, r = n, p = 1;
         for(int i=0;i<n;i++){
+            if(s[i]=='L')l++;
+            else r--;
+        }
+        int res[n];
+        memset(res, 1, sizeof(res));
+        for(int i=n-1;i>=0;i--){
             if(s[i]=='L'){
-                cout << p % m << " ";
-                p/=a[l];
-                l++;
+                p=( p*a[l-1] ) % m;
+                res[i]=p%m;
+                l--;
             }else {
-                cout << p % m << " ";
-                p/=a[r];
-                r--;
+                p=(p* a[r]) % m;
+                res[i]=p%m;
+                r++;
             }
+        }
+        for(int i=0;i<n;i++){
+            cout << res[i] << " ";
         }
         cout << endl;
 
