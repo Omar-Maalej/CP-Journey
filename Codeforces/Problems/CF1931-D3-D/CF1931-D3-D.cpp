@@ -11,12 +11,12 @@ int main()
     int t;
     cin >> t;
     while(t--){
-        int n,x,y;
+        long long n,x,y;
         cin >> n >> x >>y;
-        map<pair<int,int>, int> m;
-        int ans = 0;
+        map<pair<long long,long long>, long long> m;
+        long long ans = 0;
         for(int i=0;i<n;i++){
-            int a;
+            long long a;
             cin >> a;
             if(m[make_pair((x - a % x) % x , a % y)])ans+=m[make_pair((x - a % x) % x , a % y)];
             m[make_pair(a % x, a % y)]++;
