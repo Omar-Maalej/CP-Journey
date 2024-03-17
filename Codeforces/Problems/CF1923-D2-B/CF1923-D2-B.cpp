@@ -30,7 +30,7 @@ int32_t main()
         int remainder = 0;
         bool ok = true;
         for(int i=1;i<=mx;i++){
-            cout << i << " : " << dist[i] << endl;
+            //cout << i << " : " << dist[i] << endl;
             remainder += (k-dist[i]);
             if(remainder < 0){
                 ok = false;
