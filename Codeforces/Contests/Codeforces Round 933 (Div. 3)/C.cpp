@@ -25,7 +25,6 @@ int main()
             }
             }
             if(ok){
-                    cout << i << " ";
                     ans++;
                     i+=2;
                     continue;
@@ -38,7 +37,6 @@ int main()
             }
             }
              if(ok){
-                    cout << i << " ";
                     ans++;
                     i+=2;
                     continue;
