@@ -18,13 +18,13 @@ int main()
             cin >> a[i];
         }
         long long cnt = 0;
-        int x = k/2 + k%2;
+        long long x = (k+1)/2;
 
-        for(int i=0;i<n && x>0;i++)
+        for(int i=0;i<n;i++)
         {
             if(!a[i])break;
             if(a[i]<=x){
-                cout << x << ":" << a[i] << endl;
+                // cout << x << ":" << a[i] << endl;
                 x-=a[i];
                 a[i]=0;
                 cnt++;
@@ -34,10 +34,10 @@ int main()
             }
         }
         k/=2;
-        for(int i=n-1;i>=0 && k>0;i--)
+        for(int i=n-1;i>=0;i--)
         {   if(!a[i])break;
             if(a[i]<=k){
-                cout << k << ":" << a[i] << endl;
+                 // cout << k << ":" << a[i] << endl;
                 k-=a[i];
                 a[i]=0;
                 cnt++;
