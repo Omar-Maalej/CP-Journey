@@ -16,7 +16,6 @@ int main()
     vector<int> ord(M+1, 0);
     for(int i=0;i<M;i++){
         long long p = (x+y)%M;
-        cout << p << endl;
         S.insert(p);
         if(!ord[p])ord[p] = i+1;
         x = (u * p)%M;
