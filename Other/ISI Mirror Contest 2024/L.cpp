@@ -3,12 +3,11 @@ using namespace std;
 #define fastIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define int long long int
 
-const long double _PI= 3.141592653589793238;
 
+const long double _PI= 3.141592653589793238;
 const int P = 1e9+7 ;//it should be prime number because we are using fermat's little theorem which is only applicable for prime numbers
 //the theorem is : a^(p-1) = 1 (mod p) where p is prime number and a is any number so  we can write a^(p-2) = a^(-1) (mod p) which is the inverse of a
-const int N = 1e5 ;
-int fact[N];
+
 
 int addmod(int a, int b){
     return (a + b) % P;
@@ -50,41 +49,40 @@ int divideMod(int a, int b){
     return multiplymod(a, modInverse(b));
 }
 
-void calculateFactorialMod(){
-    // it determines the factorial of all numbers from 0 to N (mod p)
-    //O(N)
-    fact[0] = 1;
-    for(int i = 1; i <= N; i++){
-        fact[i] = multiplymod(fact[i - 1], i);
-    }
-}
-
-int nCr(int n, int r){
-    //it determines nCr (mod p)
-    //O(log(P ))
-    //nCr = n! / (r! * (n - r)!)
-    //nCr = n! * (r! * (n - r)!)^(-1) (mod p)
-    //nCr = n! * (r! * (n - r)!)^(p - 2) (mod p)
-    int numerator = fact[n];
-    int denominator = multiplymod(fact[r], fact[n - r]);
-    return multiplymod(numerator, modInverse(denominator));
-}
-
 
 
 
 int32_t main()
 {
     fastIO;
-    int n;
-    cin >> n;
-    calculateFactorialMod();
-    cout << modInverse(6) << endl;
-    cout << nCr(n,n/2) << endl;
+
+    int n, m;
+    cin >> n >> m;
+    int MOD = P;
+
+    int k = 1;
+    map<int , int> segments;
+    for(int i=1;i<=m;i++){
+        int a;
+        cin >> a;
+        segments[a-k]++;
+        k = a+1;
+    }
+    segments[n-k + 1]++;
+    int ans = 0;
+    for(auto x : segments){
+        int i = x.first;
+
+        int x1 = divideMod( ( ((i * (i+1)) % MOD ) * (i+1)) % MOD , 2);
+        int x2 = divideMod((( (i * (i+1)) % MOD ) * ((2*i+1) % MOD )) % MOD, 6);
+        int cur = (x1 % MOD - x2 % MOD) % MOD;
+        cur = (cur + MOD) % MOD;
+        cur = (cur * x.second)% MOD;
+        ans = (ans + cur) % MOD;
+    }
+
+    cout << ans << endl;
+
 
     return 0;
 }
-
-
-
-
