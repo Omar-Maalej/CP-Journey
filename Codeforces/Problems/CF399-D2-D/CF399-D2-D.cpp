@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#define fastIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 using namespace std;
 
 const int N = 1<<18;
@@ -60,6 +61,7 @@ int query(int l, int r, int id , int ns, int ne){
 }
 
 int main(){
+    fastIO;
     int n, m;
     cin >> n >> m;
     int x = (1<<n);
