@@ -14,20 +14,19 @@ int main()
         int n,k;
         cin >> n >> k;
         vector<int> ans;
-        if(k==1){
-            ans.push_back(2);
-            ans.push_back(3);
-            ans.push_back(4);
-            sum=9;
+        int i=0;
+        while((1<<i+1) <= k)
+                i++;
+        ans.push_back(k+1);
+        ans.push_back(k - (1 << i));
+        int j=0;
+        while(i!=j && j<22);
+            ans.push_back(1<<j);
+        for(int i=0;i<24;i++){
+            cout << ans[i] << " ";
         }
-        if(k==2){
-            ans.push_back(1);
-            ans.push_back(3);
 
-        }
-        for(int i=1;i<25;i++){
-
-        }
+        cout << "\n";
     }
     return 0;
 }
