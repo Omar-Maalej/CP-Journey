@@ -31,6 +31,7 @@ int32_t main()
             //cout << "1" << *it1 << endl;
             bool t1 = false,t2 =  false;
             if(it1 != s.end()){
+                cout << "here" << endl;
                 if(*it1 < b)t1 = true;
                 if(it1 != s.begin()){
                 it1--;
@@ -43,8 +44,8 @@ int32_t main()
                 //cout << *it1 << endl;
                 t2 = true;
             }
-            if(!t1 || !t2) cout << "possible"<<endl;
-            else cout << "impossible" << endl;
+            if(t1 && t2) cout << "impossible" <<endl;
+            else cout << "possible" << endl;
 
 
 
